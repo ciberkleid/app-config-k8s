@@ -1,0 +1,23 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fortune-service-k8s-kubernetes
+data:
+  management:
+    security:
+      enabled: false
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+    endpoint:
+      shutdown:
+        enabled: true
+
+  spring:
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
